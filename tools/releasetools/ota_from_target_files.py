@@ -680,10 +680,6 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
 #    common.MakeRecoveryPatch(OPTIONS.input_tmp, output_sink,
 #                             recovery_img, boot_img)
 
- if OPTIONS.backuptool:
-    script.ShowProgress(0.2, 10)
-    script.RunBackup("restore")
-
     system_items.GetMetadata(input_zip)
     system_items.Get("system").SetPermissions(script)
 
@@ -1956,7 +1952,7 @@ def main(argv):
                                  "gen_verify",
                                  "log_diff=",
                                  "backup=",
-                                 "override_device="],
+                                 "override_device=",
                              ], extra_option_handler=option_handler)
 
   if len(args) != 2:
